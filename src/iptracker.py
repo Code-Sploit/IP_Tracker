@@ -153,7 +153,7 @@ def auto():
 
 def main():
     if ("none" in options.action):
-        print("Please specify an action using the -a flag. OPTS: [ generate | trace ].")
+        print("Please specify an action using the -a flag. OPTS: [ generate | track ].")
         exit()
     try:
         if ("track" in options.action):
