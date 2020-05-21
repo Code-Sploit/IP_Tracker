@@ -123,17 +123,32 @@ def clearLog():
         print("Did you install?")
         exit(1)
 
+def viewLog():
+    with open("log/log.txt","r") as f:
+        print("Log:\n\n")
+        print(f.read())
+
+def viewHistory():
+    with open("log/history.txt","r") as f:
+        print("History:\n\n")
+        print(f.read())
+
+
 def main():
-    if ("none" in options.action):
+    if ("none" == options.action):
         print("You must enter an action using the -a flag!")
-    elif ("install" in options.action):
+    elif ("install" == options.action):
         install()
-    elif ("clear_history" in options.action):
+    elif ("clear_history" == options.action):
         clearHistory()
-    elif ("clear_log" in options.action):
+    elif ("clear_log" == options.action):
         clearLog()
-    elif ("remove" in options.action):
+    elif ("remove" == options.action):
         remove()
+    elif ("view_log" == options.action):
+        viewLog()
+    elif ("view_history" == options.action):
+        viewHistory()
     else:
         print("Illegal option!")
         print("Exited!")
