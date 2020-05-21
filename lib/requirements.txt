@@ -1,0 +1,5 @@
+colorama
+optparse
+urllib2
+json
+random
