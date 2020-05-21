@@ -1,10 +1,5 @@
-# IP_Tracker
-A repository for iptracking python scripts.
-
-
-
-
-# WARNING: this project only supports python < 3.0
+# IP_Tracker for python < 3.0
+A repository for iptracking python scripts
 
 # INSTALLING
     $ python setup.py -a install
