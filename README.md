@@ -2,15 +2,15 @@
 A repository for iptracking python scripts.
 
 # INSTALLING
-1)  $ python setup.py -a install
+    $ python setup.py -a install
 
 # LOG CLEANING
-1)  $ python setup.py -a clear_log
+    $ python setup.py -a clear_log
 
 # HISTORY CLEANING
-1)  $ python setup.py -a clear_history
+    $ python setup.py -a clear_history
 
 # REMOVING
-Comming soon!
+    $ python setup.py -a remove
 
 By skyfight
