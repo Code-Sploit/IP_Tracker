@@ -35,7 +35,7 @@ def manual():
     while True:
         try:
             ip=raw_input(colors.LIGHTGREEN_EX + "[*] What is your target IP: " + colors.RESET)
-            with open("log/history.txt","a") as f:
+            with open("history.txt","a") as f:
                 f.write(ip)
             url = "http://ip-api.com/json/"
             response = urllib2.urlopen(url + ip)
@@ -56,7 +56,7 @@ def manual():
                 choice = raw_input(str(colors.LIGHTYELLOW_EX + "Do you want to log this success? [ Y/y | N/n ] : " + colors.RESET))
                 choice = choice.upper()
                 if (choice == "Y"):
-                    with open("log/log.txt","a") as f:
+                    with open("log.txt","a") as f:
                         try:
                             f.write("\n")
                             f.write(" IP: " + values['query'] + "\n")
@@ -108,7 +108,7 @@ def auto():
         current_ipv2 = number5 + "." + number6 + "." + number7 + "." + number8
         try:
             ip=current_ipv1
-            with open("log/history.txt","a") as f:
+            with open("history.txt","a") as f:
                 f.write(ip)
             url = "http://ip-api.com/json/"
             response = urllib2.urlopen(url + ip)
@@ -126,7 +126,7 @@ def auto():
                 print(colors.MAGENTA + " AS: " + colors.CYAN + values['as'])
                 print(colors.MAGENTA + " REGION NAME: " + colors.CYAN + values['regionName'] + colors.RESET)
                 print("\n")
-                with open("log/log.txt","a") as f:
+                with open("log.txt","a") as f:
                     try:
                         f.write("\n")
                         f.write(" IP: " + values['query'] + "\n")
@@ -155,18 +155,21 @@ def main():
     if ("none" in options.action):
         print("Please specify an action using the -a flag. OPTS: [ generate | trace ].")
         exit()
-    if ("trace" in options.action):
-        if ("none" in options.input):
-            print("Please specify an input type using the -i flag. OPTS: [ manual | auto ].")
-            exit()
-        if ("manual" in options.input):
-            print("Switching to manual")
-            manual()
-        elif ("auto" in options.input):
-            print("Switching to auto")
-            auto()
-    elif ("generate" in options.action):
-        generate()
+    try:
+        if ("track" in options.action):
+            if ("none" in options.input):
+                print("Please specify an input type using the -i flag. OPTS: [ manual | auto ].")
+                exit()
+            if ("manual" in options.input):
+                print("Switching to manual")
+                manual()
+            elif ("auto" in options.input):
+                print("Switching to auto")
+                auto()
+        elif ("generate" in options.action):
+            generate()
+    except:
+        pass
 
 if __name__ == "__main__":
     main()
