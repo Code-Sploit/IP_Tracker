@@ -94,7 +94,7 @@ def auto():
     from random import randint
     import time
 
-    amount = input(str("Amount (Max: 10): "))
+    amount = input(str("Amount: "))
 
     for i in range(0,amount): 
         number1 = str(randint(1,254))
